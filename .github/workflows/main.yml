@@ -9,9 +9,6 @@ jobs:
  testRunner:
    name: Test all modes 📝
    runs-on: ubuntu-latest
-   strategy:
-      projectPath:
-       - Tic Tac Toe TDD
    steps:
      - name: Checkout code
        uses: actions/checkout@v2
