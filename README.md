@@ -1,4 +1,4 @@
-# TicTacToeTDD
+# Tic Tac Toe TDD
 Tic Tac Toe code kata using TDD and sonar cloud for CI.
 
 <p align="center">
