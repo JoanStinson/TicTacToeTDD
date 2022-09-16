@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+namespace JGM.Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IBoard
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void PlacePlayerToken(int playerId, int position);
+        void Clear();
     }
 }

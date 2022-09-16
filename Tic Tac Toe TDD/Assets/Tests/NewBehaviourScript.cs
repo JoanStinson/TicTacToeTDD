@@ -1,20 +1,23 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+namespace JGM.GameTests
 {
-    // TDD: Tests -> Code
-    // TFD: Code -> Tests
-    // Start is called before the first frame update
-    void Start()
+    public class NewBehaviourScript
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [OneTimeSetUp]
+        public void Setup()
+        {
+
+        }
+
+        [Test]
+        public void AssertBool()
+        {
+            Assert.AreEqual(0, 0);
+        }
     }
 }
