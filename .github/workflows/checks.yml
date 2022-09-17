@@ -1,0 +1,35 @@
+name: 'Checks'
+on: pull_request
+
+jobs:
+  add-reviews:
+    runs-on: ubuntu-latest
+    name: Add reviews
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.1.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: ".github/auto_assign.yml"
+  check-critical-files:
+      runs-on: ubuntu-latest
+      name: Check for critical files
+      steps:
+        - uses: codelytv/check-critical-files@v1
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            critical_message: Remember to update the README with the current version
+            critical_files: |
+              ProjectVersion.txt
+        - uses: codelytv/check-critical-files@v1
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            critical_message: Remember to update the README with the new workflow, if needed
+            critical_files: |
+              workflows
+  set-label:
+    runs-on: ubuntu-latest
+    name: Set labels
+    steps:
+    - uses: actions/labeler@v3-preview
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"

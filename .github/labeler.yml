@@ -1,0 +1,7 @@
+Contains configuration:
+  - Packages/*
+  - Packages/**/*
+  - ProjectSettings/*
+  - ProjectSettings/**/*
+  - .github/*
+  - .github/**/*
