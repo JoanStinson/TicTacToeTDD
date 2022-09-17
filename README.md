@@ -1,5 +1,5 @@
 # Tic Tac Toe TDD
-Tic Tac Toe code kata using TDD and sonar cloud for CI.
+Tic Tac Toe implementation using TDD approach with all tests runned on every new push and pull request using [Unity Actions](https://github.com/game-ci/unity-actions).
 
 <p align="center">
   <a>
@@ -43,12 +43,16 @@ Tic Tac Toe code kata using TDD and sonar cloud for CI.
   </a>
 </p>
 
-### Kata Rules
-* A game has nine fields in a 3x3 grid
-* There are two players in the game (X and O)
-* A player can take a field if not already taken
-* Players take turns taking fields until the game is over
-* A game is over when all fields in a row are taken by a player
-* A game is over when all fields in a column are taken by a player
-* A game is over when all fields in a diagonal are taken by a player
-* A game is over when all fields are taken
+## 📜 Kata Rules
+* A game has nine fields in a 3x3 grid.
+* There are two players in the game (X and O).
+* A player can take a field if not already taken.
+* Players take turns taking fields until the game is over.
+* A game is over when all fields in a row are taken by a player.
+* A game is over when all fields in a column are taken by a player.
+* A game is over when all fields in a diagonal are taken by a player.
+* A game is over when all fields are taken.
+
+## 🧩 CI
+
+## 🔍 Code Analysis
