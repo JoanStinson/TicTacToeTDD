@@ -1,4 +1,4 @@
-name: GameCI Template 🎮
+name: Build
 
 on: push
 
