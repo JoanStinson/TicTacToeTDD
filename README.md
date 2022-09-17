@@ -24,7 +24,7 @@ Tic Tac Toe code kata using TDD and sonar cloud for CI.
 
 <p align="center">
   <a>
-    <img alt="Build" src="https://github.com/DanielParra159/HangmanGame/workflows/Build/badge.svg">
+    <img alt="Build" src="https://github.com/JoanStinson/TicTacToeTDD/workflows/Build/badge.svg">
   </a>
   <a>
     <img alt="Unity Code Coverage" src="https://github.com/DanielParra159/HangmanGame/blob/master/CodeCoverage/Report/badge_linecoverage.svg">
