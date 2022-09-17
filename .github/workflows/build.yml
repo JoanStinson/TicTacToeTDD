@@ -36,6 +36,9 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: WebGL
+          unityVersion: 2020.3.25f1
+          # adding allowDirtyBuild here fixed it for me!
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v2
