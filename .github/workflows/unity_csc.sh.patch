@@ -1,0 +1,11 @@
+--- /opt/Unity/Editor/Data/Tools/RoslynScripts/unity_csc.sh	2019-12-09 21:28:07.000000000 -0500
++++ unity_csc.sh	2020-01-05 13:19:43.382286963 -0500
+@@ -73,7 +73,7 @@
+         else
+             #debian systems its higher then 8.7
+             VERMIN=`lsb_release -rs | cut -f2 -d.`
+-            if [ $VERMAJOR -gt 8 ] && [ $VERMIN -gt 7]; then
++            if [ $VERMAJOR -gt 8 ]; then
+                 USE_NETCORE=1
+             fi
+         fi
