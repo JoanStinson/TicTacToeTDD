@@ -1,5 +1,5 @@
 # Tic Tac Toe TDD
-Tic Tac Toe implementation using TDD approach making all tests run on every new push and pull request using [Unity Actions](https://github.com/game-ci/unity-actions).
+Tic Tac Toe implementation using TDD and made all tests run on every new push and pull request using [Unity Actions](https://github.com/game-ci/unity-actions).
 
 <p align="center">
   <a>
