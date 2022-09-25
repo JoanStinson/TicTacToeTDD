@@ -53,14 +53,14 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
 * A game is over when all fields in a diagonal are taken by a player.
 * A game is over when all fields are taken.
 
-## 🧩 CI
+## 🧩 Continuous Integration
 I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). Every time a new push is commited to the repository or a new pull request is created, all edit mode and play mode tests run.
 <p align="center">
-  <img width="989" height="340" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/ci workflow.PNG">
+  <img width="824" height="283" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/ci workflow.PNG">
 </p>
 
 ## 🔍 Code Analysis
 I have used the [Unity Code Coverage](https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/index.html) package to generate reports of both edit and play mode tests, like the one in the following image. This is super helpful to feel safe about your code. The more coverage, the more robust! 💪
 <p align="center">
-  <img width="1253" height="398" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/coverage.PNG">
+  <img width="1044" height="331" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/coverage.PNG">
 </p>
