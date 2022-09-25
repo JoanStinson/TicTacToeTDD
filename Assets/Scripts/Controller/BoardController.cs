@@ -81,5 +81,11 @@ namespace JGM.Controller
                 playerRolls[i] = 0;
             }
         }
+
+        public void Restart()
+        {
+            ClearBoard();
+            IsGameRunning = true;
+        }
     }
 }
