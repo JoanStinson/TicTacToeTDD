@@ -19,11 +19,6 @@ namespace JGM.View
 
         private void OnGUI()
         {
-            if (!boardController.IsGameRunning)
-            {
-                return;
-            }
-
             for (int i = 0; i < boardSize.x; i++)
             {
                 for (int j = 0; j < boardSize.y; j++)
@@ -34,6 +29,11 @@ namespace JGM.View
 
                     if (GUI.Button(buttonRect, cellValue))
                     {
+                        if (!boardController.IsGameRunning)
+                        {
+                            continue;
+                        }
+
                         int playerId = boardController.GetPlayerTurn();
                         boardController.SetCell(cell, playerId);
                     }

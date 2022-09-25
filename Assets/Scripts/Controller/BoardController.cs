@@ -22,6 +22,7 @@ namespace JGM.Controller
             boardResultController = new BoardResultController();
             playerRolls = new int[maxPlayers];
             this.playerTurn = playerTurn;
+            IsGameRunning = true;
         }
 
         public void SetCell(Vector2Int cell, int playerId)
