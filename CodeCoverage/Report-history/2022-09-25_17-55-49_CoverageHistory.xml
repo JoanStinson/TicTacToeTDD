@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2022-09-25_17-55-49" tag="">
+  <assembly name="JGM.Controller">
+    <class name="JGM.Controller.BoardController" coveredlines="0" coverablelines="55" totallines="91" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.BoardResultController" coveredlines="0" coverablelines="11" totallines="22" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.ColumnsResult" coveredlines="0" coverablelines="30" totallines="48" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.DiagonalsResult" coveredlines="0" coverablelines="20" totallines="44" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.RowsResult" coveredlines="0" coverablelines="30" totallines="48" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.Model">
+    <class name="JGM.Model.BoardModel" coveredlines="0" coverablelines="27" totallines="47" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Model.TokenModel" coveredlines="0" coverablelines="10" totallines="27" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.Tests">
+    <class name="JGM.GameTests.Board" coveredlines="23" coverablelines="23" totallines="305" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.GameTests.BoardController" coveredlines="92" coverablelines="95" totallines="305" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.GameTests.NewBehaviourScript" coveredlines="66" coverablelines="66" totallines="305" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.View">
+    <class name="JGM.View.BoardView" coveredlines="0" coverablelines="29" totallines="49" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>
