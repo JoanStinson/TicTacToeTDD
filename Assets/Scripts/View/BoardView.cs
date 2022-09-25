@@ -39,6 +39,11 @@ namespace JGM.View
                     }
                 }
             }
+
+            if (GUI.Button(new Rect(300, 100, 100, 100), "Restart"))
+            {
+                boardController.Restart();
+            }
         }
     }
 }
