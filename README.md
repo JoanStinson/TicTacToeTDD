@@ -27,7 +27,7 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
     <img alt="Build" src="https://github.com/JoanStinson/TicTacToeTDD/workflows/Build/badge.svg">
   </a>
   <a>
-    <img alt="Unity Code Coverage" src="https://github.com/DanielParra159/HangmanGame/blob/master/CodeCoverage/Report/badge_linecoverage.svg">
+    <img alt="Unity Code Coverage" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/CodeCoverage/Report/badge_linecoverage.svg">
   </a>
   <a>
     <img alt="Sonar Cloud Code Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=DanielParra159_HangmanGame&metric=coverage">
@@ -54,5 +54,7 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
 * A game is over when all fields are taken.
 
 ## 🧩 CI
+I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). Every time a new push is commited to the repository or a new pull request is created, all edit mode and play mode tests run.
 
 ## 🔍 Code Analysis
+I have used the [Unity Code Coverage](https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/index.html) package to generate reports of both edit and play mode tests, like the one in the following image. This is super helpful to feel safe about your code. The more coverage, the more robust! 💪
