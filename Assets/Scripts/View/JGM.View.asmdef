@@ -1,0 +1,17 @@
+{
+    "name": "JGM.View",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dc9fba9dbb437d94ab61ec3015a63246",
+        "GUID:92abac542cd02414ab9741101f053a9e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
