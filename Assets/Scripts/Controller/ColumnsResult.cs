@@ -39,7 +39,6 @@ namespace JGM.Controller
                             return;
                         }
                     }
-
                 }
             }
 
