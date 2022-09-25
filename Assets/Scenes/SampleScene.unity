@@ -235,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc61091a7c80f6478d1afa07c7e821f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardSize: {x: 3, y: 3}
+  cellSize: 80
+  startingPlayerTurn: 0
 --- !u!4 &1686499741
 Transform:
   m_ObjectHideFlags: 0

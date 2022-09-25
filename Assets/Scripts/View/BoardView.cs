@@ -1,4 +1,5 @@
 using JGM.Controller;
+using JGM.Model;
 using UnityEngine;
 
 namespace JGM.View
@@ -7,28 +8,34 @@ namespace JGM.View
     {
         [SerializeField] private Vector2Int boardSize = Vector2Int.one * 3;
         [SerializeField] private float cellSize = 80;
-        
+        [SerializeField][Range(0, 1)] private int startingPlayerTurn = 0;
+
         private BoardController boardController;
 
-        public void Awake()
+        private void Awake()
         {
-            boardController = new BoardController(boardSize.x, boardSize.y);
+            boardController = new BoardController(boardSize.x, boardSize.y, startingPlayerTurn);
         }
 
         private void OnGUI()
         {
+            if (!boardController.IsGameRunning)
+            {
+                return;
+            }
+
             for (int i = 0; i < boardSize.x; i++)
             {
                 for (int j = 0; j < boardSize.y; j++)
                 {
                     var buttonRect = new Rect(i * 100, j * 100, cellSize, cellSize);
                     var cell = new Vector2Int(i, j);
-                    string cellValue = boardController.GetCell(cell).ToString();
+                    string cellValue = new TokenModel(boardController.GetCell(cell)).ToString();
 
                     if (GUI.Button(buttonRect, cellValue))
                     {
-                        int value = boardController.GetPlayerTurn();
-                        boardController.SetCell(cell, value);
+                        int playerId = boardController.GetPlayerTurn();
+                        boardController.SetCell(cell, playerId);
                     }
                 }
             }
