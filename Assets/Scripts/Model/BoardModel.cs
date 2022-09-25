@@ -5,13 +5,16 @@ namespace JGM.Model
 {
     public class BoardModel
     {
+        public int Rows => rows;
+        public int Columns => columns;
+        
         private readonly int[,] grid;
         private readonly int rows;
         private readonly int columns;
 
         public BoardModel(int rows, int columns)
         {
-            Debug.Assert(rows > 2 && columns > 2);
+            Debug.Assert(rows > 0 && columns > 0);
             this.rows = rows;
             this.columns = columns;
             grid = new int[rows, columns];
