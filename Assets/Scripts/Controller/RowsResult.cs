@@ -20,8 +20,8 @@ namespace JGM.Controller
 
                 for (int j = 0; j < boardController.Columns; j++)
                 {
-                    var cell = new Vector2Int(i, j);
-                    int cellValue = boardController.GetCell(cell);
+                    var coordinates = new Vector2Int(i, j);
+                    int cellValue = boardController.GetCell(coordinates);
 
                     if (rowValue == -1 && cellValue != -1)
                     {
@@ -35,7 +35,7 @@ namespace JGM.Controller
                         if (rowValueCount == BoardController.MaxPlayerRolls)
                         {
                             Debug.Log($"Game Over - Winner is Player {cellValue}!");
-                            boardController.IsGameRunning = false;
+                            boardController.GameIsPlaying = false;
                             return;
                         }
                     }

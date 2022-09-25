@@ -20,7 +20,7 @@ namespace JGM.Controller
                 boardController.GetCell(new Vector2Int(1, 1)) == boardController.GetCell(new Vector2Int(2, 2)))
             {
                 Debug.Log($"Game Over - Winner is Player {boardController.GetCell(new Vector2Int(0, 0))}!");
-                boardController.IsGameRunning = false;
+                boardController.GameIsPlaying = false;
                 return;
             }
             // 0 | 0 | 1 
@@ -30,14 +30,14 @@ namespace JGM.Controller
                      boardController.GetCell(new Vector2Int(1, 1)) == boardController.GetCell(new Vector2Int(2, 0)))
             {
                 Debug.Log($"Game Over - Winner is Player {boardController.GetCell(new Vector2Int(0, 2))}!");
-                boardController.IsGameRunning = false;
+                boardController.GameIsPlaying = false;
                 return;
             }
 
             if (boardController.IsLastTurn())
             {
                 Debug.Log($"Game Over - It's a tie!");
-                boardController.IsGameRunning = false;
+                boardController.GameIsPlaying = false;
             }
         }
     }

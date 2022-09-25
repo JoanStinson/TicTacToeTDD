@@ -24,18 +24,18 @@ namespace JGM.View
                 for (int j = 0; j < boardSize.y; j++)
                 {
                     var buttonRect = new Rect(i * 100, j * 100, cellSize, cellSize);
-                    var cell = new Vector2Int(i, j);
-                    string cellValue = new TokenModel(boardController.GetCell(cell)).ToString();
+                    var coordinates = new Vector2Int(i, j);
+                    string cellValue = new TokenModel(boardController.GetCell(coordinates)).ToString();
 
                     if (GUI.Button(buttonRect, cellValue))
                     {
-                        if (!boardController.IsGameRunning)
+                        if (!boardController.GameIsPlaying)
                         {
                             continue;
                         }
 
                         int playerId = boardController.GetPlayerTurn();
-                        boardController.SetCell(cell, playerId);
+                        boardController.SetCell(coordinates, playerId);
                     }
                 }
             }

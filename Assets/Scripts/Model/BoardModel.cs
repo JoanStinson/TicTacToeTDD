@@ -1,5 +1,5 @@
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
+using Debug = UnityEngine.Debug;
 
 namespace JGM.Model
 {
@@ -7,7 +7,7 @@ namespace JGM.Model
     {
         public int Rows => rows;
         public int Columns => columns;
-        
+
         private readonly int[,] grid;
         private readonly int rows;
         private readonly int columns;
@@ -32,16 +32,21 @@ namespace JGM.Model
             }
         }
 
-        public void SetCell(Vector2Int cell, int value)
+        public virtual void SetCell(Vector2Int coordinates, int value)
         {
-            Debug.Assert(cell.x < grid.GetLength(0) && cell.y < grid.GetLength(1));
-            grid[cell.x, cell.y] = value;
+            bool insideBounds = (coordinates.x < grid.GetLength(0) && coordinates.y < grid.GetLength(1));
+            Debug.Assert(insideBounds);
+            if (insideBounds)
+            {
+                grid[coordinates.x, coordinates.y] = value;
+            }
         }
 
-        public int GetCell(Vector2Int cell)
+        public int GetCell(Vector2Int coordinates)
         {
-            Debug.Assert(cell.x < grid.GetLength(0) && cell.y < grid.GetLength(1));
-            return grid[cell.x, cell.y];
+            bool insideBounds = (coordinates.x < grid.GetLength(0) && coordinates.y < grid.GetLength(1));
+            Debug.Assert(insideBounds);
+            return insideBounds ? grid[coordinates.x, coordinates.y] : -1;
         }
     }
 }

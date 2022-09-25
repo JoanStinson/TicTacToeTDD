@@ -6,9 +6,9 @@ namespace JGM.Controller
     public class BoardController
     {
         public const int MaxPlayerRolls = 3;
-        public int Rows => boardModel.Rows;
-        public int Columns => boardModel.Columns;
-        public bool IsGameRunning { get; set; }
+        public virtual int Rows => boardModel.Rows;
+        public virtual int Columns => boardModel.Columns;
+        public bool GameIsPlaying { get; set; }
 
         private const int maxPlayers = 2;
         private readonly BoardModel boardModel;
@@ -16,22 +16,24 @@ namespace JGM.Controller
         private readonly int[] playerRolls;
         private int playerTurn;
 
+        public BoardController() { }
+
         public BoardController(int rows, int columns, int playerTurn)
         {
             boardModel = new BoardModel(rows, columns);
             boardResultController = new BoardResultController();
             playerRolls = new int[maxPlayers];
             this.playerTurn = playerTurn;
-            IsGameRunning = true;
+            GameIsPlaying = true;
         }
 
-        public void SetCell(Vector2Int cell, int playerId)
+        public void SetCell(Vector2Int coordinates, int playerId)
         {
             if (playerTurn == playerId)
             {
-                if (boardModel.GetCell(cell) == -1)
+                if (boardModel.GetCell(coordinates) == -1)
                 {
-                    boardModel.SetCell(cell, playerId);
+                    boardModel.SetCell(coordinates, playerId);
                     playerRolls[playerId]++;
 
                     if (ShouldCheckResult())
@@ -67,9 +69,9 @@ namespace JGM.Controller
             return playerTurn;
         }
 
-        public int GetCell(Vector2Int cell)
+        public virtual int GetCell(Vector2Int coordinates)
         {
-            return boardModel.GetCell(cell);
+            return boardModel.GetCell(coordinates);
         }
 
         public void ClearBoard()
@@ -85,7 +87,7 @@ namespace JGM.Controller
         public void Restart()
         {
             ClearBoard();
-            IsGameRunning = true;
+            GameIsPlaying = true;
         }
     }
 }
