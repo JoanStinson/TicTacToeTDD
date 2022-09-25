@@ -48,7 +48,7 @@ namespace JGM.Tests
         [Test]
         public void When_CalculatingNoWinnerResult_Expect_NextChainMethodIsCalled()
         {
-
+            //TODO continue tomorrow
         }
     }
 }
