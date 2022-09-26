@@ -43,6 +43,10 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
   </a>
 </p>
 
+<p align="center">
+  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/preview.gif">
+ </p>
+
 ## 📜 Kata Rules
 * A game has nine fields in a 3x3 grid.
 * There are two players in the game (X and O).
@@ -56,11 +60,11 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
 ## 🧩 Continuous Integration
 I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). Every time a new push is commited to the repository or a new pull request is created, all edit mode and play mode tests run.
 <p align="center">
-  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/ci workflow.PNG">
+  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/ci workflow.PNG">
 </p>
 
 ## 🔍 Code Analysis
 I have used the [Unity Code Coverage](https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/index.html) package to generate reports of both edit and play mode tests, like the one in the following image. This is super helpful to feel safe about your code. The more coverage, the more robust! 💪
 <p align="center">
-  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/coverage.PNG">
+  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/coverage.PNG">
 </p>
