@@ -74,7 +74,13 @@ namespace JGM.Controller
             return boardModel.GetCell(coordinates);
         }
 
-        public void ClearBoard()
+        public void Restart()
+        {
+            ClearBoard();
+            GameIsPlaying = true;
+        }
+
+        private void ClearBoard()
         {
             boardModel.ClearCells();
 
@@ -82,12 +88,6 @@ namespace JGM.Controller
             {
                 playerRolls[i] = 0;
             }
-        }
-
-        public void Restart()
-        {
-            ClearBoard();
-            GameIsPlaying = true;
         }
     }
 }
