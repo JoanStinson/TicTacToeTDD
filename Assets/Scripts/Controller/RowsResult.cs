@@ -49,7 +49,7 @@ namespace JGM.Controller
         {
             return (rowValue == -1 && cellValue != -1);
         }
-        
+
         private bool ValueIsEqualToFirstValue(int rowValue, int cellValue)
         {
             return (rowValue == cellValue && cellValue != -1);

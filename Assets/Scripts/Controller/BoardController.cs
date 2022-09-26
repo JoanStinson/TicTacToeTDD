@@ -73,7 +73,7 @@ namespace JGM.Controller
             return boardModel.GetCell(coordinates);
         }
 
-        public void Restart()
+        public virtual void Restart()
         {
             ClearBoard();
             GameIsPlaying = true;

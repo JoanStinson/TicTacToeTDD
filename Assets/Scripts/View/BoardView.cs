@@ -6,6 +6,10 @@ namespace JGM.View
 {
     public class BoardView : MonoBehaviour
     {
+        public bool ShouldDrawTitle { get; set; } = true;
+        public bool ShouldDrawBoard { get; set; } = true;
+        public bool ShouldDrawPlayAgainButton => !boardController.GameIsPlaying;
+
         [SerializeField] private int boardRows = 3;
         [SerializeField] private int boardColumns = 3;
         [SerializeField] private float cellSize = 80;
@@ -20,9 +24,14 @@ namespace JGM.View
 
         private BoardController boardController;
 
+        public void Initialize(BoardController boardController)
+        {
+            this.boardController = boardController;
+        }
+
         private void Awake()
         {
-            boardController = new BoardController(boardRows, boardColumns, startingPlayerTurn);
+            boardController ??= new BoardController(boardRows, boardColumns, startingPlayerTurn);
         }
 
         private void OnGUI()
@@ -32,43 +41,68 @@ namespace JGM.View
             DrawPlayAgainButton();
         }
 
-        private void DrawTitle()
+        public bool DrawTitle(bool render = true)
         {
-            GUI.Label(new Rect(screenWidthInHalf - 160, screenHeightInHalf - 225, 320, 300), "<size=50><b>TIC TAC TOE</b></size>");
-        }
-
-        private void DrawBoard()
-        {
-            GUI.BeginGroup(new Rect(screenWidthInHalf - (boardRenderSize / 2), screenHeightInHalf - (boardRenderSize / 2), boardRenderSize, boardRenderSize));
-            GUI.Box(new Rect(0, 0, boardRenderSize, boardRenderSize), string.Empty);
-
-            for (int i = 0; i < boardRows; i++)
+            if (!ShouldDrawTitle)
             {
-                for (int j = 0; j < boardColumns; j++)
-                {
-                    var buttonRect = new Rect((i * cellsSpacing) + cellsPadding, (j * cellsSpacing) + cellsPadding, cellSize, cellSize);
-                    var coordinates = new Vector2Int(i, j);
-                    string cellValue = new TokenModel(boardController.GetCell(coordinates)).ToString();
-
-                    if (GUI.Button(buttonRect, cellValue))
-                    {
-                        if (!boardController.GameIsPlaying)
-                        {
-                            continue;
-                        }
-
-                        int playerId = boardController.GetPlayerTurn();
-                        boardController.SetCell(coordinates, playerId);
-                    }
-                }
+                return false;
             }
 
-            GUI.EndGroup();
+            if (render)
+            {
+                GUI.Label(new Rect(screenWidthInHalf - 160, screenHeightInHalf - 225, 320, 300), "<size=50><b>TIC TAC TOE</b></size>");
+            }
+
+            return true;
         }
 
-        private void DrawPlayAgainButton()
+        public bool DrawBoard(bool render = true)
         {
-            if (!boardController.GameIsPlaying)
+            if (!ShouldDrawBoard)
+            {
+                return false;
+            }
+
+            if (render)
+            {
+                GUI.BeginGroup(new Rect(screenWidthInHalf - (boardRenderSize / 2), screenHeightInHalf - (boardRenderSize / 2), boardRenderSize, boardRenderSize));
+                GUI.Box(new Rect(0, 0, boardRenderSize, boardRenderSize), string.Empty);
+
+                for (int i = 0; i < boardRows; i++)
+                {
+                    for (int j = 0; j < boardColumns; j++)
+                    {
+                        var buttonRect = new Rect((i * cellsSpacing) + cellsPadding, (j * cellsSpacing) + cellsPadding, cellSize, cellSize);
+                        var coordinates = new Vector2Int(i, j);
+                        string cellValue = new TokenModel(boardController.GetCell(coordinates)).ToString();
+
+                        if (GUI.Button(buttonRect, cellValue))
+                        {
+                            if (!boardController.GameIsPlaying)
+                            {
+                                continue;
+                            }
+
+                            int playerId = boardController.GetPlayerTurn();
+                            boardController.SetCell(coordinates, playerId);
+                        }
+                    }
+                }
+
+                GUI.EndGroup();
+            }
+
+            return true;
+        }
+
+        public bool DrawPlayAgainButton(bool render = true, bool simulateButtonClick = false)
+        {
+            if (!ShouldDrawPlayAgainButton)
+            {
+                return false;
+            }
+
+            if (render)
             {
                 var playAgainButtonRect = new Rect(screenWidthInHalf - 50, screenHeightInHalf + 175, 100, 25);
                 if (GUI.Button(playAgainButtonRect, "<b>PLAY AGAIN</b>"))
@@ -76,6 +110,12 @@ namespace JGM.View
                     boardController.Restart();
                 }
             }
+            else if (simulateButtonClick)
+            {
+                boardController.Restart();
+            }
+
+            return true;
         }
     }
 }
