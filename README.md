@@ -15,31 +15,10 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
     <img alt="Repo Size" src="https://img.shields.io/github/repo-size/JoanStinson/TicTacToeTDD?logo=VirtualBox">
   </a>
   <a>
-    <img alt="Downloads" src="https://img.shields.io/github/downloads/JoanStinson/TicTacToeTDD/total?color=brightgreen">
-  </a>
-  <a>
-    <img alt="Last Release" src="https://img.shields.io/github/v/release/JoanStinson/TicTacToeTDD?include_prereleases&logo=Dropbox&color=yellow">
-  </a>
-</p>
-
-<p align="center">
-  <a>
     <img alt="Build" src="https://github.com/JoanStinson/TicTacToeTDD/workflows/Build/badge.svg">
   </a>
   <a>
     <img alt="Unity Code Coverage" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/CodeCoverage/Report/badge_linecoverage.svg">
-  </a>
-  <a>
-    <img alt="Sonar Cloud Code Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=DanielParra159_HangmanGame&metric=coverage">
-  </a>
-  <a>
-    <img alt="Maintainability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=DanielParra159_HangmanGame&metric=sqale_rating">
-  </a>
-  <a>
-    <img alt="Quality Gate" src="https://sonarcloud.io/api/project_badges/measure?project=DanielParra159_HangmanGame&metric=alert_status">
-  </a>
-  <a>
-    <img alt="Technical Debt" src="https://sonarcloud.io/api/project_badges/measure?project=DanielParra159_HangmanGame&metric=sqale_index">
   </a>
 </p>
 
