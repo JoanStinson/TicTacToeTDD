@@ -7,10 +7,6 @@ namespace JGM.View
 {
     public class BoardView : MonoBehaviour
     {
-        public bool ShouldDrawTitle { get; set; } = true;
-        public bool ShouldDrawBoard { get; set; } = true;
-        public bool ShouldDrawPlayAgainButton => !boardController.GameIsPlaying;
-
         [SerializeField] private int boardRows = 3;
         [SerializeField] private int boardColumns = 3;
         [SerializeField] private float cellSize = 80;
@@ -19,9 +15,6 @@ namespace JGM.View
         private const int boardRenderSize = 300;
         private const int cellsSpacing = 100;
         private const int cellsPadding = 10;
-
-        private static readonly int screenWidthInHalf = Screen.width / 2;
-        private static readonly int screenHeightInHalf = Screen.height / 2;
 
         private BoardController boardController;
 
@@ -42,39 +35,21 @@ namespace JGM.View
             DrawPlayAgainButton();
         }
 
-        public bool DrawTitle(bool render = true)
+        public void DrawTitle()
         {
-            if (!ShouldDrawTitle)
-            {
-                return false;
-            }
-
-            if (render)
-            {
-                GUI.Label(new Rect(screenWidthInHalf - 160, screenHeightInHalf - 225, 320, 300), "<size=50><b>TIC TAC TOE</b></size>");
-            }
-
-            return true;
+            GUI.Label(new Rect((Screen.width / 2) - 160, (Screen.height / 2) - 225, 320, 300), "<size=50><b>TIC TAC TOE</b></size>");
         }
 
-        public bool DrawBoard(bool render = true, bool buttonClickSimulated = false)
+        public void DrawBoard(bool buttonClickSimulated = false)
         {
-            if (!ShouldDrawBoard)
+            try
             {
-                return false;
+                GUI.BeginGroup(new Rect((Screen.width / 2) - (boardRenderSize / 2), (Screen.height / 2) - (boardRenderSize / 2), boardRenderSize, boardRenderSize));
+                GUI.Box(new Rect(0, 0, boardRenderSize, boardRenderSize), string.Empty);
             }
-
-            if (render)
+            catch (Exception exception)
             {
-                try
-                {
-                    GUI.BeginGroup(new Rect(screenWidthInHalf - (boardRenderSize / 2), screenHeightInHalf - (boardRenderSize / 2), boardRenderSize, boardRenderSize));
-                    GUI.Box(new Rect(0, 0, boardRenderSize, boardRenderSize), string.Empty);
-                }
-                catch (Exception exception)
-                {
-                    //Debug.LogError(exception.Message);
-                }
+                Debug.LogError(exception.Message);
             }
 
             for (int i = 0; i < boardRows; i++)
@@ -86,77 +61,54 @@ namespace JGM.View
                     string cellValue = new TokenModel(boardController.GetCell(coordinates)).ToString();
                     bool buttonClicked = false;
 
-                    if (render)
+                    try
                     {
-                        try
+                        buttonClicked = GUI.Button(buttonRect, cellValue);
+                    }
+                    catch (Exception) { }
+                    finally
+                    {
+                        if ((buttonClicked || buttonClickSimulated) && boardController.GameIsPlaying)
                         {
-                            buttonClicked = GUI.Button(buttonRect, cellValue);
-                        }
-                        catch (Exception exception)
-                        {
-                            //Debug.LogError(exception.Message);
-                        }
-                        finally
-                        {
-                            if ((buttonClicked || buttonClickSimulated) && boardController.GameIsPlaying)
-                            {
-                                int playerId = boardController.GetPlayerTurn();
-                                boardController.SetCell(coordinates, playerId);
-                            }
+                            int playerId = boardController.GetPlayerTurn();
+                            boardController.SetCell(coordinates, playerId);
                         }
                     }
                 }
             }
 
-            if (render)
+            try
             {
-                try
-                {
-                    GUI.EndGroup();
-                }
-                catch (Exception exception)
-                {
-                    //Debug.LogError(exception.Message);
-                }
+                GUI.EndGroup();
             }
-
-            return true;
+            catch (Exception) { }
         }
 
-        public bool DrawPlayAgainButton(bool render = true, bool buttonClickSimulated = false)
+        public void DrawPlayAgainButton(bool buttonClickedSimulated = false)
         {
-            if (!ShouldDrawPlayAgainButton)
+            if (boardController.GameIsPlaying)
             {
-                return false;
+                return;
             }
 
             bool buttonClicked = false;
 
-            if (render)
+            try
             {
-                try
+                var playAgainButtonRect = new Rect((Screen.width / 2) - 50, (Screen.height / 2) + 175, 100, 25);
+                buttonClicked = GUI.Button(playAgainButtonRect, "<b>PLAY AGAIN</b>");
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError(exception.Message);
+            }
+            finally
+            {
+                if (buttonClicked || buttonClickedSimulated)
                 {
-                    var playAgainButtonRect = new Rect(screenWidthInHalf - 50, screenHeightInHalf + 175, 100, 25);
-                    buttonClicked = GUI.Button(playAgainButtonRect, "<b>PLAY AGAIN</b>");
-                }
-                catch (Exception exception)
-                {
-                    Debug.LogError(exception.Message);
-                }
-                finally
-                {
-                    if (buttonClicked || buttonClickSimulated)
-                    {
-                        boardController.Restart();
-                    }
+                    boardController.Restart();
                 }
             }
-            else if (buttonClickSimulated)
-            {
-                boardController.Restart();
-            }
-
-            return true;
         }
     }
 }

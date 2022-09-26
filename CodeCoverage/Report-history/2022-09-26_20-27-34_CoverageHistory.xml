@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2022-09-26_20-27-34" tag="">
+  <assembly name="JGM.Controller">
+    <class name="JGM.Controller.BoardController" coveredlines="56" coverablelines="56" totallines="92" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.BoardResultController" coveredlines="15" coverablelines="15" totallines="27" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.ColumnsResult" coveredlines="39" coverablelines="39" totallines="63" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.DiagonalsResult" coveredlines="21" coverablelines="21" totallines="46" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Controller.RowsResult" coveredlines="39" coverablelines="39" totallines="63" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.Model">
+    <class name="JGM.Model.BoardModel" coveredlines="32" coverablelines="32" totallines="52" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Model.TokenModel" coveredlines="10" coverablelines="10" totallines="27" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.Tests">
+    <class name="JGM.Tests.BoardControllerTest" coveredlines="55" coverablelines="55" totallines="104" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.BoardModelTest" coveredlines="41" coverablelines="41" totallines="102" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.BoardResultControllerTest" coveredlines="8" coverablelines="8" totallines="26" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.BoardViewTest" coveredlines="38" coverablelines="38" totallines="79" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.ColumnsResultTest" coveredlines="33" coverablelines="33" totallines="93" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.DiagonalsResultTest" coveredlines="38" coverablelines="38" totallines="89" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.RowsResultTest" coveredlines="33" coverablelines="33" totallines="93" coveredbranches="0" totalbranches="0" />
+    <class name="JGM.Tests.TokenModelTest" coveredlines="4" coverablelines="4" totallines="22" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="JGM.View">
+    <class name="JGM.View.BoardView" coveredlines="102" coverablelines="102" totallines="151" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>

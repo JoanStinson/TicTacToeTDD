@@ -24,78 +24,27 @@ namespace JGM.Tests
         }
 
         [Test]
-        public void When_BoardViewIsCreated_Expect_ShouldDrawTitleAndBoardAsTrue()
-        {
-            Assert.IsTrue(boardView.ShouldDrawTitle);
-            Assert.IsTrue(boardView.ShouldDrawBoard);
-            Assert.IsFalse(boardView.ShouldDrawPlayAgainButton);
-        }
-
-        [Test]
-        public void When_ItsGameOver_Expect_ShouldDrawPlayAgainButtonAsTrue()
-        {
-            boardControllerMock.Object.GameIsPlaying = false;
-            Assert.IsTrue(boardView.ShouldDrawTitle);
-            Assert.IsTrue(boardView.ShouldDrawBoard);
-            Assert.IsTrue(boardView.ShouldDrawPlayAgainButton);
-        }
-
-        [TestCase(true)]
-        [TestCase(false)]
-        public void When_CallingDrawTitle_Expect_CorrectBooleanReturnValue(bool value)
-        {
-            boardView.ShouldDrawTitle = value;
-            Assert.AreEqual(value, boardView.DrawTitle(false));
-        }
-
-        [TestCase(true)]
-        [TestCase(false)]
-        public void When_CallingDrawBoard_Expect_CorrectBooleanReturnValue(bool value)
-        {
-            boardView.ShouldDrawBoard = value;
-            Assert.AreEqual(value, boardView.DrawBoard(false));
-            boardControllerMock.Verify(mock => mock.GetCell(It.IsAny<Vector2Int>()), value ? Times.AtLeastOnce() : Times.Never());
-        }
-
-        [TestCase(true)]
-        [TestCase(false)]
-        public void When_CallingDrawPlayAgainButton_Expect_CorrectBooleanReturnValue(bool value)
-        {
-            boardControllerMock.Object.GameIsPlaying = !value;
-            Assert.AreEqual(value, boardView.ShouldDrawPlayAgainButton);
-            Assert.AreEqual(value, boardView.DrawPlayAgainButton(false));
-        }
-
-        [Test]
-        public void When_PlayAgainButtonIsClicked_Expect_RestartMethodToBeCalleOnce()
-        {
-            boardControllerMock.Object.GameIsPlaying = false;
-            Assert.IsTrue(boardView.ShouldDrawPlayAgainButton);
-            bool value = boardView.DrawPlayAgainButton(false, true);
-            Assert.IsTrue(value);
-            boardControllerMock.Verify(mock => mock.Restart(), Times.Once());
-        }
-
-        [Test]
         public void When_DrawingTitleOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
         {
-            Assert.Throws<ArgumentException>(() => boardView.DrawTitle(true));
+            Assert.Throws<ArgumentException>(() => boardView.DrawTitle());
         }
 
         [Test]
-        public void When_DrawingBoardOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
+        public void When_DrawingBoardOutsideOnGUIMethod_Expect_ErrorLog()
         {
+            boardControllerMock.Setup(mock => mock.GetCell(It.IsAny<Vector2Int>())).Returns(-1);
             boardControllerMock.Setup(mock => mock.SetCell(It.IsAny<Vector2Int>(), It.IsAny<int>())).Verifiable();
-            boardView.DrawBoard(true, true);
-            //LogAssert.Expect(LogType.Error, "[Error] You can only call GUI functions from inside OnGUI.");
+            boardView.DrawBoard(true);
+            LogAssert.Expect(LogType.Error, "You can only call GUI functions from inside OnGUI.");
+            boardControllerMock.Verify(mock => mock.GetCell(It.IsAny<Vector2Int>()), Times.AtLeastOnce());
             boardControllerMock.Verify(mock => mock.SetCell(It.IsAny<Vector2Int>(), It.IsAny<int>()), Times.AtLeastOnce());
         }
 
         [Test]
-        public void When_DrawingPlayAgainButtonOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
+        public void When_DrawingPlayAgainButtonOutsideOnGUIMethod_Expect_ErrorLog()
         {
             boardControllerMock.Object.GameIsPlaying = false;
-            boardView.DrawPlayAgainButton(true, true);
+            boardView.DrawPlayAgainButton(true);
             LogAssert.Expect(LogType.Error, "You can only call GUI functions from inside OnGUI.");
             boardControllerMock.Verify(mock => mock.Restart(), Times.Once());
         }
