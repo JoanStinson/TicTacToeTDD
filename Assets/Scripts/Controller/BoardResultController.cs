@@ -2,13 +2,13 @@
 {
     public class BoardResultController
     {
-        private readonly IResultChain rowsResult;
+        private readonly RowsResult rowsResult;
 
         public BoardResultController()
         {
             rowsResult ??= new RowsResult();
-            IResultChain columnsResult = new ColumnsResult();
-            IResultChain diagonalsResult = new DiagonalsResult();
+            var columnsResult = new ColumnsResult();
+            var diagonalsResult = new DiagonalsResult();
 
             rowsResult.SetNextChain(columnsResult);
             columnsResult.SetNextChain(diagonalsResult);

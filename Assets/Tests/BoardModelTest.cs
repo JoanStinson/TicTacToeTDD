@@ -38,27 +38,20 @@ namespace JGM.Tests
             LogAssert.Expect(LogType.Assert, "Assertion failed");
         }
 
-        [Test]
-        public void When_BoardIsCleared_Expect_AllCellValuesToBeReset()
+        [TestCase(new int[] { 0, 0 })]
+        [TestCase(new int[] { 0, 1 })]
+        [TestCase(new int[] { 0, 2 })]
+        [TestCase(new int[] { 1, 0 })]
+        [TestCase(new int[] { 1, 1 })]
+        [TestCase(new int[] { 1, 2 })]
+        [TestCase(new int[] { 2, 0 })]
+        [TestCase(new int[] { 2, 1 })]
+        [TestCase(new int[] { 2, 2 })]
+        public void When_BoardIsCleared_Expect_AllCellValuesToBeReset(int[] cellCoordinates)
         {
             boardModel.ClearCells();
-            int currentValue = -1;
-
-            for (int i = 0; i < boardModel.Rows; i++)
-            {
-                for (int j = 0; j < boardModel.Columns; j++)
-                {
-                    var coordinates = new Vector2Int(i, j);
-                    currentValue = boardModel.GetCell(coordinates);
-
-                    if (currentValue != -1)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            Assert.AreEqual(currentValue, -1);
+            var coordinates = new Vector2Int(cellCoordinates[0], cellCoordinates[1]);
+            Assert.AreEqual(-1, boardModel.GetCell(coordinates));
         }
 
         [TestCase(new int[] { 0, 0 }, 1)]
@@ -80,6 +73,20 @@ namespace JGM.Tests
             var coordinates = new Vector2Int(cellCoordinates[0], cellCoordinates[1]);
             boardModel.SetCell(coordinates, value);
             LogAssert.Expect(LogType.Assert, "Assertion failed");
+        }
+
+        [TestCase(new int[] { 0, 0 }, -1)]
+        [TestCase(new int[] { 0, 1 }, 1)]
+        [TestCase(new int[] { 2, 0 }, 0)]
+        public void When_GetCellInsideBounds_Expect_CorrectReturnValue(int[] cellCoordinates, int value)
+        {
+            var coordinates = new Vector2Int(cellCoordinates[0], cellCoordinates[1]);
+            if (value != -1)
+            {
+                boardModel.SetCell(coordinates, value);
+            }
+            int cellValue = boardModel.GetCell(coordinates);
+            Assert.AreEqual(cellValue, value);
         }
 
         [TestCase(new int[] { 9, 17 })]

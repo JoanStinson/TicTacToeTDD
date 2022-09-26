@@ -35,13 +35,12 @@ namespace JGM.Controller
                 {
                     boardModel.SetCell(coordinates, playerId);
                     playerRolls[playerId]++;
+                    playerTurn = 1 - playerTurn;
 
                     if (ShouldCheckResult())
                     {
                         boardResultController.Calculate(this);
                     }
-
-                    playerTurn = 1 - playerTurn;
                 }
                 else
                 {

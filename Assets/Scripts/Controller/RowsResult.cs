@@ -23,16 +23,16 @@ namespace JGM.Controller
                     var coordinates = new Vector2Int(i, j);
                     int cellValue = boardController.GetCell(coordinates);
 
-                    if (rowValue == -1 && cellValue != -1)
+                    if (FirstValueOnRow(rowValue, cellValue))
                     {
                         rowValue = cellValue;
                         rowValueCount++;
                     }
-                    else if (rowValue == cellValue && cellValue != -1)
+                    else if (ValueIsEqualToFirstValue(rowValue, cellValue))
                     {
                         rowValueCount++;
 
-                        if (rowValueCount == BoardController.MaxPlayerRolls)
+                        if (WinConditionIsMet(rowValueCount))
                         {
                             Debug.Log($"Game Over - Winner is Player {cellValue}!");
                             boardController.GameIsPlaying = false;
@@ -43,6 +43,21 @@ namespace JGM.Controller
             }
 
             nextChain.Calculate(boardController);
+        }
+
+        private bool FirstValueOnRow(in int rowValue, in int cellValue)
+        {
+            return (rowValue == -1 && cellValue != -1);
+        }
+        
+        private bool ValueIsEqualToFirstValue(int rowValue, int cellValue)
+        {
+            return (rowValue == cellValue && cellValue != -1);
+        }
+
+        private bool WinConditionIsMet(int rowValueCount)
+        {
+            return (rowValueCount == BoardController.MaxPlayerRolls);
         }
     }
 }
