@@ -59,7 +59,7 @@ namespace JGM.Controller
             return (IsLastTurn() || playerRolls[0] == MaxPlayerRolls || playerRolls[1] == MaxPlayerRolls);
         }
 
-        public bool IsLastTurn()
+        public virtual bool IsLastTurn()
         {
             return (playerRolls[0] == MaxPlayerRolls && playerRolls[1] == MaxPlayerRolls);
         }

@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>9/26/2022 - 11:08:27 AM</Generatedon>
+    <Generatedon>9/26/2022 - 11:32:09 AM</Generatedon>
     <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
     <Assemblies>4</Assemblies>
-    <Classes>14</Classes>
-    <Files>12</Files>
-    <Coveredlines>97</Coveredlines>
-    <Uncoveredlines>385</Uncoveredlines>
-    <Coverablelines>482</Coverablelines>
-    <Totallines>898</Totallines>
-    <Linecoverage>20.1</Linecoverage>
+    <Classes>16</Classes>
+    <Files>14</Files>
+    <Coveredlines>454</Coveredlines>
+    <Uncoveredlines>99</Uncoveredlines>
+    <Coverablelines>553</Coverablelines>
+    <Totallines>1080</Totallines>
+    <Linecoverage>82</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>15</Coveredmethods>
-    <Totalmethods>64</Totalmethods>
-    <Methodcoverage>23.4</Methodcoverage>
+    <Coveredmethods>57</Coveredmethods>
+    <Totalmethods>72</Totalmethods>
+    <Methodcoverage>79.1</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="JGM.Controller" classes="5" coverage="21.7" coveredlines="32" coverablelines="147" totallines="255" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="21" methodcoverage="23.8">
+    <Assembly name="JGM.Controller" classes="5" coverage="55.7" coveredlines="82" coverablelines="147" totallines="255" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="21" methodcoverage="42.8">
       <Class name="JGM.Controller.BoardController" coverage="3.5" coveredlines="2" coverablelines="56" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="13" methodcoverage="23" />
       <Class name="JGM.Controller.BoardResultController" coverage="0" coveredlines="0" coverablelines="11" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="JGM.Controller.ColumnsResult" coverage="0" coveredlines="0" coverablelines="30" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
-      <Class name="JGM.Controller.DiagonalsResult" coverage="0" coveredlines="0" coverablelines="20" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="JGM.Controller.ColumnsResult" coverage="100" coveredlines="30" coverablelines="30" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
+      <Class name="JGM.Controller.DiagonalsResult" coverage="100" coveredlines="20" coverablelines="20" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="JGM.Controller.RowsResult" coverage="100" coveredlines="30" coverablelines="30" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
     </Assembly>
-    <Assembly name="JGM.Model" classes="2" coverage="76.1" coveredlines="32" coverablelines="42" totallines="79" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="8" methodcoverage="75">
+    <Assembly name="JGM.Model" classes="2" coverage="100" coveredlines="42" coverablelines="42" totallines="79" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100">
       <Class name="JGM.Model.BoardModel" coverage="100" coveredlines="32" coverablelines="32" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
-      <Class name="JGM.Model.TokenModel" coverage="0" coveredlines="0" coverablelines="10" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="JGM.Model.TokenModel" coverage="100" coveredlines="10" coverablelines="10" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
     </Assembly>
-    <Assembly name="JGM.Tests" classes="6" coverage="12.5" coveredlines="33" coverablelines="264" totallines="1125" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="32" methodcoverage="12.5">
-      <Class name="JGM.GameTests.Board" coverage="0" coveredlines="0" coverablelines="23" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="JGM.GameTests.BoardController" coverage="0" coveredlines="0" coverablelines="95" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="6" methodcoverage="0" />
-      <Class name="JGM.GameTests.NewBehaviourScript" coverage="0" coveredlines="0" coverablelines="66" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
-      <Class name="JGM.Tests.BoardModelTest" coverage="0" coveredlines="0" coverablelines="43" totallines="95" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
+    <Assembly name="JGM.Tests" classes="8" coverage="98.5" coveredlines="330" coverablelines="335" totallines="1307" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="40" totalmethods="40" methodcoverage="100">
+      <Class name="JGM.GameTests.Board" coverage="100" coveredlines="23" coverablelines="23" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="JGM.GameTests.BoardController" coverage="96.8" coveredlines="92" coverablelines="95" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
+      <Class name="JGM.GameTests.NewBehaviourScript" coverage="100" coveredlines="66" coverablelines="66" totallines="305" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="10" totalmethods="10" methodcoverage="100" />
+      <Class name="JGM.Tests.BoardModelTest" coverage="95.3" coveredlines="41" coverablelines="43" totallines="95" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
+      <Class name="JGM.Tests.ColumnsResultTest" coverage="100" coveredlines="33" coverablelines="33" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="JGM.Tests.DiagonalsResultTest" coverage="100" coveredlines="38" coverablelines="38" totallines="89" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
       <Class name="JGM.Tests.RowsResultTest" coverage="100" coveredlines="33" coverablelines="33" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
-      <Class name="JGM.Tests.TokenModelTest" coverage="0" coveredlines="0" coverablelines="4" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="JGM.Tests.TokenModelTest" coverage="100" coveredlines="4" coverablelines="4" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
     </Assembly>
     <Assembly name="JGM.View" classes="1" coverage="0" coveredlines="0" coverablelines="29" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0">
       <Class name="JGM.View.BoardView" coverage="0" coveredlines="0" coverablelines="29" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />

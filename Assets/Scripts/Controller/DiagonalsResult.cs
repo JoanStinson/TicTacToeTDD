@@ -36,7 +36,7 @@ namespace JGM.Controller
 
             if (boardController.IsLastTurn())
             {
-                Debug.Log($"Game Over - It's a tie!");
+                Debug.Log("Game Over - It's a tie!");
                 boardController.GameIsPlaying = false;
             }
         }
