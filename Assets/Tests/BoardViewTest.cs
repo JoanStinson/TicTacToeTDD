@@ -2,7 +2,9 @@
 using JGM.View;
 using Moq;
 using NUnit.Framework;
+using System;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace JGM.Tests
 {
@@ -52,6 +54,7 @@ namespace JGM.Tests
         {
             boardView.ShouldDrawBoard = value;
             Assert.AreEqual(value, boardView.DrawBoard(false));
+            boardControllerMock.Verify(mock => mock.GetCell(It.IsAny<Vector2Int>()), value ? Times.AtLeastOnce() : Times.Never());
         }
 
         [TestCase(true)]
@@ -59,6 +62,7 @@ namespace JGM.Tests
         public void When_CallingDrawPlayAgainButton_Expect_CorrectBooleanReturnValue(bool value)
         {
             boardControllerMock.Object.GameIsPlaying = !value;
+            Assert.AreEqual(value, boardView.ShouldDrawPlayAgainButton);
             Assert.AreEqual(value, boardView.DrawPlayAgainButton(false));
         }
 
@@ -66,8 +70,33 @@ namespace JGM.Tests
         public void When_PlayAgainButtonIsClicked_Expect_RestartMethodToBeCalleOnce()
         {
             boardControllerMock.Object.GameIsPlaying = false;
+            Assert.IsTrue(boardView.ShouldDrawPlayAgainButton);
             bool value = boardView.DrawPlayAgainButton(false, true);
             Assert.IsTrue(value);
+            boardControllerMock.Verify(mock => mock.Restart(), Times.Once());
+        }
+
+        [Test]
+        public void When_DrawingTitleOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
+        {
+            Assert.Throws<ArgumentException>(() => boardView.DrawTitle(true));
+        }
+
+        [Test]
+        public void When_DrawingBoardOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
+        {
+            boardControllerMock.Setup(mock => mock.SetCell(It.IsAny<Vector2Int>(), It.IsAny<int>())).Verifiable();
+            boardView.DrawBoard(true, true);
+            //LogAssert.Expect(LogType.Error, "[Error] You can only call GUI functions from inside OnGUI.");
+            boardControllerMock.Verify(mock => mock.SetCell(It.IsAny<Vector2Int>(), It.IsAny<int>()), Times.AtLeastOnce());
+        }
+
+        [Test]
+        public void When_DrawingPlayAgainButtonOutsideOnGUIMethod_Expect_ArgumentExceptionThrown()
+        {
+            boardControllerMock.Object.GameIsPlaying = false;
+            boardView.DrawPlayAgainButton(true, true);
+            LogAssert.Expect(LogType.Error, "You can only call GUI functions from inside OnGUI.");
             boardControllerMock.Verify(mock => mock.Restart(), Times.Once());
         }
     }

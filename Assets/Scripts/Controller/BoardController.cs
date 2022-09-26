@@ -27,7 +27,7 @@ namespace JGM.Controller
             GameIsPlaying = true;
         }
 
-        public void SetCell(Vector2Int coordinates, int playerId)
+        public virtual void SetCell(Vector2Int coordinates, int playerId)
         {
             if (playerTurn == playerId)
             {
