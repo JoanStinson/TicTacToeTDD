@@ -56,7 +56,7 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
 ## 🧩 Continuous Integration
 I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). Every time a new push is commited to the repository or a new pull request is created, all edit mode and play mode tests run.
 <p align="center">
-  <img width="824" height="283" src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/ci workflow.PNG">
+  <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/ci workflow.PNG">
 </p>
 
 ## 🔍 Code Analysis
