@@ -14,10 +14,10 @@
             switch (value)
             {
                 case 0:
-                    return "O";
+                    return "<size=70><b>O</b></size>";
 
                 case 1:
-                    return "X";
+                    return "<size=70><b>X</b></size>";
 
                 default:
                     return string.Empty;

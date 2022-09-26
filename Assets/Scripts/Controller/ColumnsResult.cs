@@ -57,7 +57,7 @@ namespace JGM.Controller
 
         private bool WinConditionIsMet(int columnValueCount)
         {
-            return (columnValueCount == BoardController.MaxPlayerRolls);
+            return (columnValueCount == BoardController.ConsecutiveTokensToWin);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace JGM.Controller
 {
     public class BoardController
     {
-        public const int MaxPlayerRolls = 3;
+        public const int ConsecutiveTokensToWin = 3;
         public virtual int Rows => boardModel.Rows;
         public virtual int Columns => boardModel.Columns;
         public bool GameIsPlaying { get; set; }
@@ -13,7 +13,7 @@ namespace JGM.Controller
         private const int maxPlayers = 2;
         private readonly BoardModel boardModel;
         private readonly BoardResultController boardResultController;
-        private readonly int[] playerRolls;
+        private readonly int[] playerTokens;
         private int playerTurn;
 
         public BoardController() { }
@@ -22,7 +22,7 @@ namespace JGM.Controller
         {
             boardModel = new BoardModel(rows, columns);
             boardResultController = new BoardResultController();
-            playerRolls = new int[maxPlayers];
+            playerTokens = new int[maxPlayers];
             this.playerTurn = playerTurn;
             GameIsPlaying = true;
         }
@@ -34,7 +34,7 @@ namespace JGM.Controller
                 if (boardModel.GetCell(coordinates) == -1)
                 {
                     boardModel.SetCell(coordinates, playerId);
-                    playerRolls[playerId]++;
+                    playerTokens[playerId]++;
                     playerTurn = 1 - playerTurn;
 
                     if (ShouldCheckResult())
@@ -55,12 +55,12 @@ namespace JGM.Controller
 
         private bool ShouldCheckResult()
         {
-            return (IsLastTurn() || playerRolls[0] == MaxPlayerRolls || playerRolls[1] == MaxPlayerRolls);
+            return (playerTokens[0] >= ConsecutiveTokensToWin || playerTokens[1] >= ConsecutiveTokensToWin);
         }
 
         public virtual bool IsLastTurn()
         {
-            return (playerRolls[0] == MaxPlayerRolls && playerRolls[1] == MaxPlayerRolls);
+            return (playerTokens[0] + playerTokens[1] == Rows * Columns);
         }
 
         public int GetPlayerTurn()
@@ -83,9 +83,9 @@ namespace JGM.Controller
         {
             boardModel.ClearCells();
 
-            for (int i = 0; i < playerRolls.Length; i++)
+            for (int i = 0; i < playerTokens.Length; i++)
             {
-                playerRolls[i] = 0;
+                playerTokens[i] = 0;
             }
         }
     }
