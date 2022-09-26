@@ -11,7 +11,7 @@ namespace JGM.Controller
             this.nextChain = nextChain;
         }
 
-        public void Calculate(BoardController boardController)
+        public virtual void Calculate(BoardController boardController)
         {
             for (int i = 0; i < boardController.Rows; i++)
             {

@@ -6,12 +6,17 @@
 
         public BoardResultController()
         {
-            rowsResult = new RowsResult();
+            rowsResult ??= new RowsResult();
             IResultChain columnsResult = new ColumnsResult();
             IResultChain diagonalsResult = new DiagonalsResult();
 
             rowsResult.SetNextChain(columnsResult);
             columnsResult.SetNextChain(diagonalsResult);
+        }
+
+        public BoardResultController(RowsResult rowsResult) : this()
+        {
+            this.rowsResult = rowsResult;
         }
 
         public void Calculate(BoardController boardController)
