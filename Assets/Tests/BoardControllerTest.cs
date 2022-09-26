@@ -57,7 +57,7 @@ namespace JGM.Tests
         }
 
         [Test]
-        public void When_BothPlayersHaveRolledMaxTimes_Expect_IsLastTurnAsTrue()
+        public void When_AllCellsAreOccupied_Expect_IsLastTurnAsTrue()
         {
             boardController.SetCell(new Vector2Int(0, 0), 0);
             boardController.SetCell(new Vector2Int(0, 1), 1);
@@ -65,6 +65,9 @@ namespace JGM.Tests
             boardController.SetCell(new Vector2Int(1, 0), 1);
             boardController.SetCell(new Vector2Int(1, 1), 0);
             boardController.SetCell(new Vector2Int(1, 2), 1);
+            boardController.SetCell(new Vector2Int(2, 0), 0);
+            boardController.SetCell(new Vector2Int(2, 1), 1);
+            boardController.SetCell(new Vector2Int(2, 2), 0);
             Assert.IsTrue(boardController.IsLastTurn());
         }
 

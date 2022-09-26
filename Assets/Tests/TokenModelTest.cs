@@ -7,8 +7,8 @@ namespace JGM.Tests
     {
         private TokenModel tokenModel;
 
-        [TestCase(0, "O")]
-        [TestCase(1, "X")]
+        [TestCase(0, "<size=70><b>O</b></size>")]
+        [TestCase(1, "<size=70><b>X</b></size>")]
         [TestCase(-1, "")]
         [TestCase(44, "")]
         [TestCase(345, "")]
