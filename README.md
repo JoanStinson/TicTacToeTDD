@@ -1,5 +1,5 @@
 # Tic Tac Toe TDD
-Tic Tac Toe implementation using TDD and made all tests run on every new push and pull request using [Unity Actions](https://github.com/game-ci/unity-actions).
+Tic Tac Toe implementation using TDD and made all tests run on every new pull request using [Unity Actions](https://github.com/game-ci/unity-actions).
 
 <p align="center">
   <a>
@@ -37,7 +37,7 @@ Tic Tac Toe implementation using TDD and made all tests run on every new push an
 * A game is over when all fields are taken.
 
 ## 🧩 Continuous Integration
-I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). Every time a new push is commited to the repository or a new pull request is created, all edit mode and play mode tests run.
+I have created a continuous integration workflow via [GitHub Actions](https://github.com/features/actions), more specifically via [Unity Actions](https://github.com/game-ci/unity-actions). On every new pull request or push to `main`, all edit and playmode tests run as well as building on target platforms and deploying a WebGL build to GitHub pages. In order to merge a pull request to `main`, the branch must be up to date and all tests and builds must pass.
 <p align="center">
   <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/ci workflow.PNG">
 </p>
