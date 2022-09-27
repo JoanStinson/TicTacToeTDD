@@ -15,6 +15,15 @@ Tic Tac Toe implementation using TDD and made all tests run on every new pull re
     <img alt="Repo Size" src="https://img.shields.io/github/repo-size/JoanStinson/TicTacToeTDD?logo=VirtualBox">
   </a>
   <a>
+    <img alt="Downloads" src="https://img.shields.io/github/downloads/JoanStinson/TicTacToeTDD/total?color=brightgreen">
+  </a>
+  <a>
+    <img alt="Last Release" src="https://img.shields.io/github/v/release/JoanStinson/TicTacToeTDD?include_prereleases&logo=Dropbox&color=yellow">
+  </a>
+</p>
+
+<p align="center">
+  <a>
     <img alt="Build" src="https://github.com/JoanStinson/TicTacToeTDD/workflows/Build/badge.svg">
   </a>
   <a>
@@ -24,7 +33,7 @@ Tic Tac Toe implementation using TDD and made all tests run on every new pull re
 
 <p align="center">
   <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/preview.gif">
- </p>
+</p>
 
 ## 📜 Kata Rules
 * A game has nine fields in a 3x3 grid.
