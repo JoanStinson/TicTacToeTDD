@@ -43,7 +43,7 @@ I have created a continuous integration workflow via [GitHub Actions](https://gi
 </p>
 
 ## 🔍 Code Analysis
-I have used the [Unity Code Coverage](https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/index.html) package to generate reports of both edit and play mode tests, like the one in the following image. This is super helpful to feel safe about your code. The more coverage, the more robust! 💪
+I have used the [Unity Code Coverage](https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@0.2/manual/index.html) package to generate reports of both edit and play mode tests. Tests help your project fix and prevent unexpected bugs, making sure all functionality works as intended. Therefore, tests help keep your project healthy, just as eating fruits and vegetables and exercising. The more coverage, the more healthy! 💪
 <p align="center">
   <img src="https://github.com/JoanStinson/TicTacToeTDD/blob/main/Images/coverage.PNG">
 </p>
