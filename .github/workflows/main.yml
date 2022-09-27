@@ -1,7 +1,9 @@
-name: Build
+name: Run tests, build and deploy WebGL build on github pages ✔️
 
-on: push
-
+on: 
+  push: { branches: [main] }
+  pull_request: {}
+  
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
